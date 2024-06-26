@@ -20,6 +20,7 @@ num_test::~num_test() {}
 
 void num_test::testNOD() {
     QCOMPARE(num(25,5).NOD(), 5);
+    QCOMPARE(num(53, 4).NOD(), 4);
 }
 
 QTEST_APPLESS_MAIN(num_test)
