@@ -50,7 +50,10 @@ void num_test::test_sin() {
 }
 
 void num_test::test_sq() {
-
+    num ob;
+    double eps = 0.001;
+    QVERIFY((ob.SqEq(1,2,1)[0] + 1) * (ob.SqEq(1,2,1)[0] + 1) < eps);
+    QVERIFY((6*ob.SqEq(-6, 5, 1)[0] + 1)*(ob.SqEq(-6, 5, 1)[1] - 1) < eps);
 }
 
 QTEST_APPLESS_MAIN(num_test)

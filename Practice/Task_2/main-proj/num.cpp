@@ -6,20 +6,18 @@ using namespace std;
 num::num() {}
 
 bool num::IsPrime(uint a) {
-    for (uint i = 1; i < a; i++) {
+    for (uint i = 2; i < a; i++) {
         if (i*i > a)
             return true;
-        else {
-            if(a % i == 0)
-                return false;
-        }
+        if(a % i == 0)
+            return false;
     }
     return true;
 }
 
 QVector<uint> num::PrimaryMultiple(uint a) {
     QVector<uint> ans;
-    if (!this->IsPrime(a)) {
+    if (!(this->IsPrime(a))) {
         uint primary = 2;
         while (a > 1) {
             while (a % primary == 0) {
@@ -30,6 +28,7 @@ QVector<uint> num::PrimaryMultiple(uint a) {
         }
         return ans;
     } else {
+        ans.push_back(a);
         return ans;
     }
 }
