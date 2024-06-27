@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "primaryform.h"
 #include "sinform.h"
-#include "sqeqform.h"
+#include "sqform.h"
 
 
 MainWindow::MainWindow(QWidget *parent)

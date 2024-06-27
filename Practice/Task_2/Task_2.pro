@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    main-proj
+    main-proj \
+    test-proj

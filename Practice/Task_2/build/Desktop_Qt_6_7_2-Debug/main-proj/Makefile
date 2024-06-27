@@ -57,20 +57,20 @@ SOURCES       = ../../../main-proj/main.cpp \
 		../../../main-proj/num.cpp \
 		../../../main-proj/primaryform.cpp \
 		../../../main-proj/sinform.cpp \
-		../../../main-proj/sqeqform.cpp moc_mainwindow.cpp \
+		../../../main-proj/sqform.cpp moc_mainwindow.cpp \
 		moc_primaryform.cpp \
 		moc_sinform.cpp \
-		moc_sqeqform.cpp
+		moc_sqform.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		num.o \
 		primaryform.o \
 		sinform.o \
-		sqeqform.o \
+		sqform.o \
 		moc_mainwindow.o \
 		moc_primaryform.o \
 		moc_sinform.o \
-		moc_sqeqform.o
+		moc_sqform.o
 DIST          = /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/pavel/Qt/6.7.2/gcc_64/mkspecs/common/unix.conf \
 		/home/pavel/Qt/6.7.2/gcc_64/mkspecs/common/linux.conf \
@@ -419,12 +419,12 @@ DIST          = /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../main-proj/num.h \
 		../../../main-proj/primaryform.h \
 		../../../main-proj/sinform.h \
-		../../../main-proj/sqeqform.h ../../../main-proj/main.cpp \
+		../../../main-proj/sqform.h ../../../main-proj/main.cpp \
 		../../../main-proj/mainwindow.cpp \
 		../../../main-proj/num.cpp \
 		../../../main-proj/primaryform.cpp \
 		../../../main-proj/sinform.cpp \
-		../../../main-proj/sqeqform.cpp
+		../../../main-proj/sqform.cpp
 QMAKE_TARGET  = main-proj
 DESTDIR       = 
 TARGET        = main-proj
@@ -433,7 +433,7 @@ TARGET        = main-proj
 first: all
 ####### Build rules
 
-main-proj: ui_mainwindow.h ui_primaryform.h ui_sinform.h ui_sqeqform.h $(OBJECTS)  
+main-proj: ui_mainwindow.h ui_primaryform.h ui_sinform.h ui_sqform.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../../../main-proj/main-proj.pro /home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++/qmake.conf /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
@@ -1148,9 +1148,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../main-proj/mainwindow.h ../../../main-proj/num.h ../../../main-proj/primaryform.h ../../../main-proj/sinform.h ../../../main-proj/sqeqform.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../main-proj/main.cpp ../../../main-proj/mainwindow.cpp ../../../main-proj/num.cpp ../../../main-proj/primaryform.cpp ../../../main-proj/sinform.cpp ../../../main-proj/sqeqform.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../main-proj/mainwindow.ui ../../../main-proj/primaryform.ui ../../../main-proj/sinform.ui ../../../main-proj/sqeqform.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../main-proj/mainwindow.h ../../../main-proj/num.h ../../../main-proj/primaryform.h ../../../main-proj/sinform.h ../../../main-proj/sqform.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../main-proj/main.cpp ../../../main-proj/mainwindow.cpp ../../../main-proj/num.cpp ../../../main-proj/primaryform.cpp ../../../main-proj/sinform.cpp ../../../main-proj/sqform.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../main-proj/mainwindow.ui ../../../main-proj/primaryform.ui ../../../main-proj/sinform.ui ../../../main-proj/sqform.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1181,9 +1181,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_primaryform.cpp moc_sinform.cpp moc_sqeqform.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_primaryform.cpp moc_sinform.cpp moc_sqform.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_primaryform.cpp moc_sinform.cpp moc_sqeqform.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_primaryform.cpp moc_sinform.cpp moc_sqform.cpp
 moc_mainwindow.cpp: ../../../main-proj/mainwindow.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMainWindow \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -1374,6 +1374,8 @@ moc_mainwindow.cpp: ../../../main-proj/mainwindow.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../main-proj/primaryform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QWidget \
+		../../../main-proj/sinform.h \
+		../../../main-proj/sqform.h \
 		moc_predefs.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
 	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task_2/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task_2/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/mainwindow.h -o moc_mainwindow.cpp
@@ -1758,7 +1760,7 @@ moc_sinform.cpp: ../../../main-proj/sinform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
 	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task_2/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task_2/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/sinform.h -o moc_sinform.cpp
 
-moc_sqeqform.cpp: ../../../main-proj/sqeqform.h \
+moc_sqform.cpp: ../../../main-proj/sqform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QWidget \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1946,15 +1948,15 @@ moc_sqeqform.cpp: ../../../main-proj/sqeqform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
-	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task_2/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task_2/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/sqeqform.h -o moc_sqeqform.cpp
+	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task_2/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task_2/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/sqform.h -o moc_sqform.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_primaryform.h ui_sinform.h ui_sqeqform.h
+compiler_uic_make_all: ui_mainwindow.h ui_primaryform.h ui_sinform.h ui_sqform.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_primaryform.h ui_sinform.h ui_sqeqform.h
+	-$(DEL_FILE) ui_mainwindow.h ui_primaryform.h ui_sinform.h ui_sqform.h
 ui_mainwindow.h: ../../../main-proj/mainwindow.ui \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/uic
 	/home/pavel/Qt/6.7.2/gcc_64/libexec/uic ../../../main-proj/mainwindow.ui -o ui_mainwindow.h
@@ -1967,9 +1969,9 @@ ui_sinform.h: ../../../main-proj/sinform.ui \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/uic
 	/home/pavel/Qt/6.7.2/gcc_64/libexec/uic ../../../main-proj/sinform.ui -o ui_sinform.h
 
-ui_sqeqform.h: ../../../main-proj/sqeqform.ui \
+ui_sqform.h: ../../../main-proj/sqform.ui \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/uic
-	/home/pavel/Qt/6.7.2/gcc_64/libexec/uic ../../../main-proj/sqeqform.ui -o ui_sqeqform.h
+	/home/pavel/Qt/6.7.2/gcc_64/libexec/uic ../../../main-proj/sqform.ui -o ui_sqform.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -2171,6 +2173,8 @@ main.o: ../../../main-proj/main.cpp ../../../main-proj/mainwindow.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../main-proj/primaryform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QWidget \
+		../../../main-proj/sinform.h \
+		../../../main-proj/sqform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QApplication \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../../main-proj/main.cpp
@@ -2365,9 +2369,9 @@ mainwindow.o: ../../../main-proj/mainwindow.cpp ../../../main-proj/mainwindow.h 
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../main-proj/primaryform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QWidget \
-		ui_mainwindow.h \
 		../../../main-proj/sinform.h \
-		../../../main-proj/sqeqform.h
+		../../../main-proj/sqform.h \
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../../main-proj/mainwindow.cpp
 
 num.o: ../../../main-proj/num.cpp ../../../main-proj/num.h \
@@ -2640,7 +2644,10 @@ primaryform.o: ../../../main-proj/primaryform.cpp ../../../main-proj/primaryform
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_primaryform.h
+		ui_primaryform.h \
+		../../../main-proj/num.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QVector \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qvector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o primaryform.o ../../../main-proj/primaryform.cpp
 
 sinform.o: ../../../main-proj/sinform.cpp ../../../main-proj/sinform.h \
@@ -2829,10 +2836,13 @@ sinform.o: ../../../main-proj/sinform.cpp ../../../main-proj/sinform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_sinform.h
+		ui_sinform.h \
+		../../../main-proj/num.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QVector \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qvector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sinform.o ../../../main-proj/sinform.cpp
 
-sqeqform.o: ../../../main-proj/sqeqform.cpp ../../../main-proj/sqeqform.h \
+sqform.o: ../../../main-proj/sqform.cpp ../../../main-proj/sqform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QWidget \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -3018,8 +3028,15 @@ sqeqform.o: ../../../main-proj/sqeqform.cpp ../../../main-proj/sqeqform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_sqeqform.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sqeqform.o ../../../main-proj/sqeqform.cpp
+		ui_sqform.h \
+		../../../main-proj/num.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QVector \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qvector.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sqform.o ../../../main-proj/sqform.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -3030,8 +3047,8 @@ moc_primaryform.o: moc_primaryform.cpp
 moc_sinform.o: moc_sinform.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_sinform.o moc_sinform.cpp
 
-moc_sqeqform.o: moc_sqeqform.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_sqeqform.o moc_sqeqform.cpp
+moc_sqform.o: moc_sqform.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_sqform.o moc_sqform.cpp
 
 ####### Install
 

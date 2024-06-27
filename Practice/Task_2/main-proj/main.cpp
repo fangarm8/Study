@@ -1,6 +1,4 @@
 #include "mainwindow.h"
-//#include <iostream>
-//#include <math.h>
 #include <QApplication>
 typedef unsigned int uint;
 

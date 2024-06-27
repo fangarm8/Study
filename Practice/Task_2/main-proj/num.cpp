@@ -55,9 +55,8 @@ double num::sin(double x, double eps) {
 }
 
 QVector<double> num::SqEq(double ax, double bx, double cx) {
-    QVector<double> ans(0,1);
+    QVector<double> ans;
     if (ax == 0) {
-        ans.pop_back();
         double x1 = (0 - cx) / bx;
         ans.push_back(x1);
         return ans;
@@ -65,9 +64,8 @@ QVector<double> num::SqEq(double ax, double bx, double cx) {
     else {
         double D = bx*bx - 4 * ax * cx, x1, x2;
         if (D < 0) {
-            throw "No real roots!";
+            throw QString{"No real roots!"};
         }
-        ans.pop_back();
         if (D == 0) {
             x1 = (-bx) / (2 * ax);
             ans.push_back(x1);

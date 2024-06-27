@@ -14,20 +14,20 @@ SOURCES += \
     num.cpp \
     primaryform.cpp \
     sinform.cpp \
-    sqeqform.cpp
+    sqform.cpp
 
 HEADERS += \
     mainwindow.h \
     num.h \
     primaryform.h \
     sinform.h \
-    sqeqform.h
+    sqform.h
 
 FORMS += \
     mainwindow.ui \
     primaryform.ui \
     sinform.ui \
-    sqeqform.ui
+    sqform.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "primaryform.h"
 #include "sinform.h"
-#include "sqeqform.h"
+#include "sqform.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -31,6 +31,6 @@ private:
     Ui::MainWindow *ui;
     PrimaryForm primaryWindow;
     sinform sinWindow;
-    SqEqform SqWindow;
+    Sqform SqWindow;
 };
 #endif // MAINWINDOW_H
