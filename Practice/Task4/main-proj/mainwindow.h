@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "rectangle.h"
+#include "paint.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,7 +19,19 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+
+    void on_SelectColor_triggered();
+
+    void on_selRectangle_triggered();
+
 private:
     Ui::MainWindow *ui;
+    QColor selColor;
+    Paint* scene;
+    Rectangle* rec;
+    //QGraphicsScene *scene;
+    QVector<Rectangle*> figures;
+    uint obj_type;
 };
 #endif // MAINWINDOW_H
