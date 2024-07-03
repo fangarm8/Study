@@ -1566,6 +1566,11 @@ moc_paint.cpp: ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../main-proj/rectangle.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
 		moc_predefs.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
 	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/paint.h -o moc_paint.cpp
@@ -2190,13 +2195,19 @@ paint.o: ../../../main-proj/paint.cpp ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qinputmethod.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../main-proj/rectangle.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o paint.o ../../../main-proj/paint.cpp
 
 rectangle.o: ../../../main-proj/rectangle.cpp ../../../main-proj/rectangle.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qcolor.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QObject \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobject.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qnamespace.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qglobal.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtversionchecks.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtconfiginclude.h \
@@ -2241,27 +2252,22 @@ rectangle.o: ../../../main-proj/rectangle.cpp ../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtresource.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qttranslation.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qversiontagging.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtgui-config.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtguiexports.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qrgb.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qnamespace.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtmetamacros.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringlist.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlist.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydatapointer.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydataops.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydata.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qpair.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcontainertools_impl.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qxptype_traits.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/q20functional.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/q20memory.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfunctionaltools_impl.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstring.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qchar.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringview.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbytearray.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qrefcount.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydata.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qpair.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydataops.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/q20functional.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/q20memory.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbytearrayalgorithms.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbytearrayview.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringfwd.h \
@@ -2275,20 +2281,13 @@ rectangle.o: ../../../main-proj/rectangle.cpp ../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringconverter.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlist.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qhashfunctions.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qiterator.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringlist.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qalgorithms.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qrgba64.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobject.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfunctionaltools_impl.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcoreevent.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qmetatype.h \
@@ -2305,6 +2304,18 @@ rectangle.o: ../../../main-proj/rectangle.cpp ../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qscopeguard.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobject_impl.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qcolor.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtgui-config.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtguiexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qrgb.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qrgba64.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qvariant.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdebug.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtextstream.h \

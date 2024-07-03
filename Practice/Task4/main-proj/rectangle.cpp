@@ -1,21 +1,15 @@
 #include "rectangle.h"
 
-Rectangle::Rectangle(QObject *parent) : /*QObject(parent),*/ QGraphicsItem() {
+Rectangle::Rectangle() : QGraphicsItem() {
     points[0] = QPointF(-20, 10);
     points[1] = QPointF(20, -10);
 }
 
-Rectangle::Rectangle(QPointF start_p, QObject *parent)
+Rectangle::Rectangle(QPointF start_p, QPointF end_p)
 {
     points[0] = start_p;
-    points[1] = QPointF(points[0].x() + 400, points[0].y() + 200);
+    points[1] = end_p;
 }
-
-/*void Rectangle::slotTarget(QPointF mouse_point)
-{
-    points[0] = mouse_point;
-    points[1] = QPointF(points[0].x() + 400, points[0].y() + 200);
-}*/
 
 QRectF Rectangle::boundingRect() const {
     return QRectF(-200, 100, 200, -100);

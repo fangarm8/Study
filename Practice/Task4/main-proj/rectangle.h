@@ -6,12 +6,11 @@
 #include <QGraphicsItem>
 #include <QPainter>
 
-class Rectangle : /*public QObject,*/ public QGraphicsItem
+class Rectangle : public QGraphicsItem
 {
-    //Q_OBJECT
 public:
-    Rectangle(QObject *parent = 0);
-    Rectangle(QPointF start_p, QObject *parent = 0);
+    Rectangle();
+    Rectangle(QPointF start_p, QPointF end_p);
 /*public slots:
     void slotTarget(QPointF mouse_point);*/
 private:

@@ -25,7 +25,7 @@ void MainWindow::on_SelectColor_triggered()
 
 void MainWindow::on_selRectangle_triggered()
 {
-    /*rec = new Rectangle(scene->target);
-    scene->addItem(rec);*/
+    rec = new Rectangle();
+    scene->figures.push_back(rec);
 }
 

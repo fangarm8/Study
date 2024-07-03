@@ -30,8 +30,7 @@ private:
     QColor selColor;
     Paint* scene;
     Rectangle* rec;
-    //QGraphicsScene *scene;
-    QVector<Rectangle*> figures;
-    uint obj_type;
+    //QVector<Rectangle*> figures;
+    //uint obj_type;
 };
 #endif // MAINWINDOW_H
