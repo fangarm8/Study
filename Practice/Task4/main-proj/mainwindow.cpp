@@ -45,6 +45,12 @@ void MainWindow::on_selPolygon_triggered()
     scene->obj_type = 2;
 }
 
+void MainWindow::on_selMouseLine_triggered()
+{
+    scene->obj_type = 3;
+}
+
+
 void MainWindow::slotTimer()
 {
     timer->stop();
@@ -56,3 +62,4 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     timer->start(100);
     QMainWindow::resizeEvent(event);
 }
+

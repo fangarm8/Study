@@ -10,12 +10,12 @@ class Rectangle : public QGraphicsItem
 {
 public:
     Rectangle();
-    Rectangle(QPointF start_p, QPointF end_p, QColor selColor);
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
-private:
+    Rectangle(QPointF start_p, QColor selColor);
     QPointF points[2];
+private:
     QColor figColor;
 protected:
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
     QRectF boundingRect() const override;
 };
 
@@ -23,7 +23,7 @@ class Ellipse : public Rectangle
 {
 public:
     Ellipse();
-    Ellipse(QPointF start_p, QPointF end_p, QColor selColor);
+    Ellipse(QPointF start_p, QColor selColor);
 private:
     QPointF points[2];
     QColor figColor;
@@ -35,7 +35,19 @@ class Polygon : public Rectangle
 {
 public:
     Polygon();
-    Polygon(QPointF start_p, QPointF end_p, QColor selColor);
+    Polygon(QPointF start_p, QColor selColor);
+private:
+    QPointF points[2];
+    QColor figColor;
+protected:
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
+};
+
+class FreeLine : public Rectangle
+{
+public:
+    FreeLine();
+    FreeLine(QPointF start_p, QColor selColor);
 private:
     QPointF points[2];
     QColor figColor;

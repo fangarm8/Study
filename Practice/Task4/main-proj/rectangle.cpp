@@ -5,10 +5,10 @@ Rectangle::Rectangle() : QGraphicsItem() {
     points[1] = QPointF(20, -10);
 }
 
-Rectangle::Rectangle(QPointF start_p, QPointF end_p, QColor selColor)
+Rectangle::Rectangle(QPointF start_p, QColor selColor)
 {
-    points[0] = start_p;
-    points[1] = end_p;
+    points[0] = mapFromScene(start_p);
+    points[1] = mapFromScene(start_p);
     figColor = selColor;
 }
 
@@ -33,10 +33,10 @@ Ellipse::Ellipse() {
     points[1] = QPointF(20, -10);
 }
 
-Ellipse::Ellipse(QPointF start_p, QPointF end_p, QColor selColor)
+Ellipse::Ellipse(QPointF start_p, QColor selColor)
 {
-    points[0] = start_p;
-    points[1] = end_p;
+    points[0] = mapFromScene(start_p);
+    points[1] = mapFromScene(start_p);
     figColor = selColor;
 }
 
@@ -56,10 +56,10 @@ Polygon::Polygon()
     points[1] = QPoint(20, -10);
 }
 
-Polygon::Polygon(QPointF start_p, QPointF end_p, QColor selColor)
+Polygon::Polygon(QPointF start_p, QColor selColor)
 {
-    points[0] = start_p;
-    points[1] = end_p;
+    points[0] = mapFromScene(start_p);
+    points[1] = mapFromScene(start_p);
     figColor = selColor;
 }
 

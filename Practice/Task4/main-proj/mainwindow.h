@@ -32,6 +32,8 @@ private slots:
 
     void slotTimer();
 
+    void on_selMouseLine_triggered();
+
 private:
     Ui::MainWindow *ui;
     Paint* scene;
