@@ -10,14 +10,12 @@ class Rectangle : public QGraphicsItem
 {
 public:
     Rectangle();
-    Rectangle(QPointF start_p, QPointF end_p);
-/*public slots:
-    void slotTarget(QPointF mouse_point);*/
-private:
-    //QColor selColor;
-    QPointF points[2];
-protected:
+    Rectangle(QPointF start_p, QPointF end_p, QColor selColor);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
+private:
+    QPointF points[2];
+    QColor figColor;
+protected:
     QRectF boundingRect() const override;
 };
 
@@ -25,14 +23,24 @@ class Ellipse : public Rectangle
 {
 public:
     Ellipse();
+    Ellipse(QPointF start_p, QPointF end_p, QColor selColor);
 private:
+    QPointF points[2];
+    QColor figColor;
+protected:
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
 };
 
 class Polygon : public Rectangle
 {
 public:
     Polygon();
+    Polygon(QPointF start_p, QPointF end_p, QColor selColor);
 private:
+    QPointF points[2];
+    QColor figColor;
+protected:
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
 };
 
 #endif // RECTANGLE_H

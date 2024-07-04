@@ -6,18 +6,54 @@ Paint::Paint(QObject *parent): QGraphicsScene() {
 }
 
 void Paint::mousePressEvent(QGraphicsSceneMouseEvent *event) {
-    target[0] = event->scenePos();
+    target = event->scenePos();
 }
+
+/*void Paint::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+    switch(obj_type) {
+    case 0: {
+        rec = new Rectangle(event->scenePos(), target, selColor);
+        this->addItem(rec);
+        this->update(QRectF(QRectF(0,0,this->width(), this->height())));
+        break;
+    }
+    case 1: {
+        Ellipse* rec = new Ellipse(event->scenePos(), target, selColor);
+        this->addItem(rec);
+        this->update();
+        break;
+    }
+    case 2: {
+        Polygon* rec = new Polygon(event->scenePos(), target, selColor);
+        this->addItem(rec);
+        this->update();
+        break;
+    }
+    }
+}*/
 
 void Paint::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (figures.empty()) {
-        throw QString{"Please, choose figure!"};
-    } else {
-        target[1] = event->scenePos();
-        figures.last() = new Rectangle(target[1], target[0]);
-        this->addItem(figures.last());
+    switch(obj_type) {
+    case 0: {
+        Rectangle* rec = new Rectangle(event->scenePos(), target, selColor);
+        this->addItem(rec);
         this->update();
+        break;
+    }
+    case 1: {
+        Ellipse* rec = new Ellipse(event->scenePos(), target, selColor);
+        this->addItem(rec);
+        this->update();
+        break;
+    }
+    case 2: {
+        Polygon* rec = new Polygon(event->scenePos(), target, selColor);
+        this->addItem(rec);
+        this->update();
+        break;
+    }
     }
 }
 

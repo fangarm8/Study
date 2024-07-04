@@ -1375,6 +1375,10 @@ moc_mainwindow.cpp: ../../../main-proj/mainwindow.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
 		moc_predefs.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
 	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/mainwindow.h -o moc_mainwindow.cpp
@@ -1566,6 +1570,17 @@ moc_paint.cpp: ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qaction.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qicon.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpalette.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qcursor.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qbitmap.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
 		../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
@@ -1799,6 +1814,10 @@ main.o: ../../../main-proj/main.cpp ../../../main-proj/mainwindow.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QApplication \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../../main-proj/main.cpp
@@ -2006,6 +2025,10 @@ mainwindow.o: ../../../main-proj/mainwindow.cpp ../../../main-proj/mainwindow.h 
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../../main-proj/mainwindow.cpp
 
@@ -2196,6 +2219,17 @@ paint.o: ../../../main-proj/paint.cpp ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qaction.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qicon.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpalette.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qcursor.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qbitmap.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
 		../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \

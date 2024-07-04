@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "rectangle.h"
+#include <QColorDialog>
+#include <QTimer>
 #include "paint.h"
 
 QT_BEGIN_NAMESPACE
@@ -25,12 +26,16 @@ private slots:
 
     void on_selRectangle_triggered();
 
+    void on_selEllipse_triggered();
+
+    void on_selPolygon_triggered();
+
+    void slotTimer();
+
 private:
     Ui::MainWindow *ui;
-    QColor selColor;
     Paint* scene;
-    Rectangle* rec;
-    //QVector<Rectangle*> figures;
-    //uint obj_type;
+    QTimer *timer;
+    void resizeEvent(QResizeEvent *event);
 };
 #endif // MAINWINDOW_H
