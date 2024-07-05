@@ -29,6 +29,8 @@ private slots:
     void on_selPolygon_triggered();
     void slotTimer();
 
+    void on_openFile_triggered();
+
 private:
     Ui::MainWindow *ui;
     Paint* scene;

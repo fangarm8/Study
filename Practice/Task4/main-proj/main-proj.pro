@@ -1,4 +1,4 @@
-QT       += core gui svg
+QT       += core gui svg xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,12 +12,14 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     paint.cpp \
-    rectangle.cpp
+    rectangle.cpp \
+    svg_reader.cpp
 
 HEADERS += \
     mainwindow.h \
     paint.h \
-    rectangle.h
+    rectangle.h \
+    svg_reader.h
 
 FORMS += \
     mainwindow.ui

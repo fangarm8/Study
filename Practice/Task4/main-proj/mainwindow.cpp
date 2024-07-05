@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "svg_reader.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -43,6 +44,23 @@ void MainWindow::on_saveFile_triggered()
     save_painter.end();
 }
 
+void MainWindow::on_openFile_triggered()
+{
+    QString newPath = QFileDialog::getOpenFileName(this, "Open SVG", path, "SVG files (* .svg)");
+    if (newPath.isEmpty())
+        return;
+
+    path = newPath;
+    scene->clear();
+
+    scene->setSceneRect(SVG_reader::getSizes(path));
+
+    foreach (QGraphicsItem *item, SVG_reader::getEl(path)) {
+        QGraphicsItem *rect = item;
+        scene->addItem(rect);
+    }
+}
+
 void MainWindow::on_SelectColor_triggered()
 {
     scene->selColor = QColorDialog::getColor(Qt::black, this);
@@ -77,5 +95,4 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     timer->start(100);
     QMainWindow::resizeEvent(event);
 }
-
 

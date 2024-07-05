@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_SVG_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_SVG_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I../../../main-proj -I. -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I. -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../../main-proj -I. -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtXml -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I. -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/pavel/Qt/6.7.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = main-proj1.0.0
 DISTDIR = /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/.tmp/main-proj1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/pavel/Qt/6.7.2/gcc_64/lib -Wl,-rpath-link,/home/pavel/Qt/6.7.2/gcc_64/lib
-LIBS          = $(SUBLIBS) /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Svg.so -pthread /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Widgets.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Gui.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Core.so -lpthread -lGL   
+LIBS          = $(SUBLIBS) /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Svg.so -pthread /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Widgets.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Gui.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Xml.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Core.so -lpthread -lGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -55,12 +55,14 @@ OBJECTS_DIR   = ./
 SOURCES       = ../../../main-proj/main.cpp \
 		../../../main-proj/mainwindow.cpp \
 		../../../main-proj/paint.cpp \
-		../../../main-proj/rectangle.cpp moc_mainwindow.cpp \
+		../../../main-proj/rectangle.cpp \
+		../../../main-proj/svg_reader.cpp moc_mainwindow.cpp \
 		moc_paint.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		paint.o \
 		rectangle.o \
+		svg_reader.o \
 		moc_mainwindow.o \
 		moc_paint.o
 DIST          = /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
@@ -409,10 +411,12 @@ DIST          = /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/lex.prf \
 		/home/pavel/Projects/Study/main-proj/main-proj.pro ../../../main-proj/mainwindow.h \
 		../../../main-proj/paint.h \
-		../../../main-proj/rectangle.h ../../../main-proj/main.cpp \
+		../../../main-proj/rectangle.h \
+		../../../main-proj/svg_reader.h ../../../main-proj/main.cpp \
 		../../../main-proj/mainwindow.cpp \
 		../../../main-proj/paint.cpp \
-		../../../main-proj/rectangle.cpp
+		../../../main-proj/rectangle.cpp \
+		../../../main-proj/svg_reader.cpp
 QMAKE_TARGET  = main-proj
 DESTDIR       = 
 TARGET        = main-proj
@@ -772,6 +776,7 @@ Makefile: ../../../main-proj/main-proj.pro /home/pavel/Qt/6.7.2/gcc_64/mkspecs/l
 		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Svg.prl \
 		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Widgets.prl \
 		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Gui.prl \
+		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Xml.prl \
 		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Core.prl
 	$(QMAKE) -o Makefile ../../../main-proj/main-proj.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/spec_pre.prf:
@@ -1122,6 +1127,7 @@ Makefile: ../../../main-proj/main-proj.pro /home/pavel/Qt/6.7.2/gcc_64/mkspecs/l
 /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Svg.prl:
 /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Widgets.prl:
 /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Gui.prl:
+/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Xml.prl:
 /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../../../main-proj/main-proj.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -1138,8 +1144,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../main-proj/mainwindow.h ../../../main-proj/paint.h ../../../main-proj/rectangle.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../main-proj/main.cpp ../../../main-proj/mainwindow.cpp ../../../main-proj/paint.cpp ../../../main-proj/rectangle.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../main-proj/mainwindow.h ../../../main-proj/paint.h ../../../main-proj/rectangle.h ../../../main-proj/svg_reader.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../main-proj/main.cpp ../../../main-proj/mainwindow.cpp ../../../main-proj/paint.cpp ../../../main-proj/rectangle.cpp ../../../main-proj/svg_reader.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../main-proj/mainwindow.ui $(DISTDIR)/
 
 
@@ -1401,7 +1407,7 @@ moc_mainwindow.cpp: ../../../main-proj/mainwindow.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
 		moc_predefs.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
-	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/mainwindow.h -o moc_mainwindow.cpp
+	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtXml -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/mainwindow.h -o moc_mainwindow.cpp
 
 moc_paint.cpp: ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsScene \
@@ -1624,7 +1630,7 @@ moc_paint.cpp: ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
 		moc_predefs.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
-	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/paint.h -o moc_paint.cpp
+	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtXml -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/paint.h -o moc_paint.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2101,7 +2107,8 @@ mainwindow.o: ../../../main-proj/mainwindow.cpp ../../../main-proj/mainwindow.h 
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../main-proj/svg_reader.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../../main-proj/mainwindow.cpp
 
 paint.o: ../../../main-proj/paint.cpp ../../../main-proj/paint.h \
@@ -2475,6 +2482,211 @@ rectangle.o: ../../../main-proj/rectangle.cpp ../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qendian.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qfontmetrics.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rectangle.o ../../../main-proj/rectangle.cpp
+
+svg_reader.o: ../../../main-proj/svg_reader.cpp ../../../main-proj/svg_reader.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qconfig.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtcore-config.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qassert.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtnoop.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtypes.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtversion.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qsysinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlogging.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qflags.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qatomic.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qyieldcpu.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qforeach.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qttypetraits.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qmalloc.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qminmax.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qnumeric.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qoverload.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qswap.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtresource.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qttranslation.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qversiontagging.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtgui-config.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtguiexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobject.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qnamespace.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstring.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qchar.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringview.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbytearray.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qrefcount.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydata.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qpair.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qarraydataops.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/q20functional.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/q20memory.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringfwd.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/q20type_traits.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringliteral.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qanystringview.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringconverter.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlist.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qiterator.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringlist.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qalgorithms.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcoreevent.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qmetatype.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcompare.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcomparehelpers.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdatastream.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfloat16.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qmath.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qiterable.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qscopeguard.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qobject_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qvariant.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdebug.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtextstream.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qshareddata.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qmap.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qset.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qhash.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/q23utility.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qrect.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qmargins.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qsize.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qpoint.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtransform.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpolygon.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qregion.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qline.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpixmap.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qcolor.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qrgb.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qrgba64.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qimage.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpixelformat.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QList \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPen \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpen.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qbrush.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QFile \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfile.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qiodevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qaction.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qicon.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpalette.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qfont.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qendian.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qfontinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qcursor.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qbitmap.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qevent.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qurl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qeventpoint.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qvector2d.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qvectornd.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpointingdevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qinputdevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qscreen.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QObject \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QRect \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QSize \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QSizeF \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QTransform \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qnativeinterface.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qscreen_platform.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qeventloop.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfuture.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfutureinterface.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qmutex.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtsan_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qresultstore.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfuture_impl.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qthreadpool.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qthread.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qrunnable.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qexception.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qpromise.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qinputmethod.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtXml/QDomDocument \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtXml/qdom.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtXml/qtxmlglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtXml/qtxml-config.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtXml/qtxmlexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QStringList
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o svg_reader.o ../../../main-proj/svg_reader.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

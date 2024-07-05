@@ -11,11 +11,11 @@ class Rectangle : public QGraphicsItem
 public:
     Rectangle();
     Rectangle(QPointF start_p, QPointF end_p, QColor selColor);
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
 private:
     QPointF points[2];
     QColor figColor;
 protected:
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
     QRectF boundingRect() const override;
 };
 

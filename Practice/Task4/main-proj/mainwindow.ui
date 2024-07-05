@@ -38,7 +38,7 @@
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
-     <string>Цвет объкта</string>
+     <string>Цвет объекта</string>
     </property>
     <addaction name="SelectColor"/>
    </widget>
@@ -46,11 +46,9 @@
     <property name="title">
      <string>Форма объекта</string>
     </property>
-    <addaction name="selLine"/>
     <addaction name="selRectangle"/>
     <addaction name="selEllipse"/>
     <addaction name="selPolygon"/>
-    <addaction name="selMouseLine"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
@@ -72,11 +70,6 @@
     <string>Выбрать цвет объекта</string>
    </property>
   </action>
-  <action name="selLine">
-   <property name="text">
-    <string>Прямая</string>
-   </property>
-  </action>
   <action name="selRectangle">
    <property name="text">
     <string>Прямоугольник</string>
@@ -90,11 +83,6 @@
   <action name="selPolygon">
    <property name="text">
     <string>Ромб</string>
-   </property>
-  </action>
-  <action name="selMouseLine">
-   <property name="text">
-    <string>Свободное рисование</string>
    </property>
   </action>
   <action name="action">
