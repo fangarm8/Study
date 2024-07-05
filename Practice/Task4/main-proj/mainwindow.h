@@ -22,19 +22,17 @@ public:
 
 private slots:
 
+    void on_saveFile_triggered();
     void on_SelectColor_triggered();
-
     void on_selRectangle_triggered();
-
     void on_selEllipse_triggered();
-
     void on_selPolygon_triggered();
-
     void slotTimer();
 
 private:
     Ui::MainWindow *ui;
     Paint* scene;
+    QString path;
     QTimer *timer;
     void resizeEvent(QResizeEvent *event);
 };

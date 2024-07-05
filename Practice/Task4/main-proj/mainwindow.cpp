@@ -22,6 +22,27 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_saveFile_triggered()
+{
+    QString newPath = QFileDialog::getSaveFileName(this, "Save SVG", path, "SVG files (* .svg)");
+    if (newPath.isEmpty())
+        return;
+
+    path = newPath;
+
+    QSvgGenerator gen;
+    gen.setFileName(path);
+    gen.setSize(QSize(scene->width(), scene->height()));
+    gen.setViewBox(QRect(0, 0, scene->width(), scene->height()));
+    gen.setTitle("main-proj");
+    gen.setDescription("File created by Qt-editor");
+
+    QPainter save_painter;
+    save_painter.begin(&gen);
+    scene->render(&save_painter);
+    save_painter.end();
+}
+
 void MainWindow::on_SelectColor_triggered()
 {
     scene->selColor = QColorDialog::getColor(Qt::black, this);
@@ -56,3 +77,5 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     timer->start(100);
     QMainWindow::resizeEvent(event);
 }
+
+

@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_SVG_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I../../../main-proj -I. -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I. -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../../main-proj -I. -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I. -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/pavel/Qt/6.7.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = main-proj1.0.0
 DISTDIR = /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/.tmp/main-proj1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/pavel/Qt/6.7.2/gcc_64/lib -Wl,-rpath-link,/home/pavel/Qt/6.7.2/gcc_64/lib
-LIBS          = $(SUBLIBS) /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Widgets.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Gui.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Core.so -lpthread -lGL   
+LIBS          = $(SUBLIBS) /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Svg.so -pthread /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Widgets.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Gui.so /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Core.so -lpthread -lGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -769,6 +769,7 @@ Makefile: ../../../main-proj/main-proj.pro /home/pavel/Qt/6.7.2/gcc_64/mkspecs/l
 		/home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/yacc.prf \
 		/home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/lex.prf \
 		../../../main-proj/main-proj.pro \
+		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Svg.prl \
 		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Widgets.prl \
 		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Gui.prl \
 		/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Core.prl
@@ -1118,6 +1119,7 @@ Makefile: ../../../main-proj/main-proj.pro /home/pavel/Qt/6.7.2/gcc_64/mkspecs/l
 /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/yacc.prf:
 /home/pavel/Qt/6.7.2/gcc_64/mkspecs/features/lex.prf:
 ../../../main-proj/main-proj.pro:
+/home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Svg.prl:
 /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Widgets.prl:
 /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Gui.prl:
 /home/pavel/Qt/6.7.2/gcc_64/lib/libQt6Core.prl:
@@ -1360,28 +1362,46 @@ moc_mainwindow.cpp: ../../../main-proj/mainwindow.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QColorDialog \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qcolordialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QTimer \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbasictimer.h \
+		../../../main-proj/paint.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpen.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPainter \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainter.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtextoption.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/QSvgGenerator \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qsvggenerator.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QFileDialog \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdir.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfile.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimezone.h \
 		../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPainter \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainter.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtextoption.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpen.h \
-		../../../main-proj/paint.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsScene \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
 		moc_predefs.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
-	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/mainwindow.h -o moc_mainwindow.cpp
+	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/mainwindow.h -o moc_mainwindow.cpp
 
 moc_paint.cpp: ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsScene \
@@ -1581,6 +1601,22 @@ moc_paint.cpp: ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qcursor.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qbitmap.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/QSvgGenerator \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qsvggenerator.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QFileDialog \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdir.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfile.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimezone.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QTimer \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbasictimer.h \
 		../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
@@ -1588,7 +1624,7 @@ moc_paint.cpp: ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
 		moc_predefs.h \
 		/home/pavel/Qt/6.7.2/gcc_64/libexec/moc
-	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/paint.h -o moc_paint.cpp
+	/home/pavel/Qt/6.7.2/gcc_64/libexec/moc $(DEFINES) --include /home/pavel/Projects/Study/Practice/Task4/build/Desktop_Qt_6_7_2-Debug/main-proj/moc_predefs.h -I/home/pavel/Qt/6.7.2/gcc_64/mkspecs/linux-g++ -I/home/pavel/Projects/Study/Practice/Task4/main-proj -I/home/pavel/Qt/6.7.2/gcc_64/include -I/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg -I/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets -I/home/pavel/Qt/6.7.2/gcc_64/include/QtGui -I/home/pavel/Qt/6.7.2/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../../main-proj/paint.h -o moc_paint.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1799,25 +1835,43 @@ main.o: ../../../main-proj/main.cpp ../../../main-proj/mainwindow.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QColorDialog \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qcolordialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QTimer \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbasictimer.h \
+		../../../main-proj/paint.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpen.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPainter \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainter.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtextoption.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/QSvgGenerator \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qsvggenerator.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QFileDialog \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdir.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfile.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimezone.h \
 		../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPainter \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainter.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtextoption.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpen.h \
-		../../../main-proj/paint.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsScene \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QApplication \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../../main-proj/main.cpp
@@ -2010,25 +2064,43 @@ mainwindow.o: ../../../main-proj/mainwindow.cpp ../../../main-proj/mainwindow.h 
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QColorDialog \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qcolordialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QTimer \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbasictimer.h \
+		../../../main-proj/paint.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpen.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPainter \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainter.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtextoption.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/QSvgGenerator \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qsvggenerator.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QFileDialog \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdir.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfile.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimezone.h \
 		../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainterpath.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPainter \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpainter.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qtextoption.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qpen.h \
-		../../../main-proj/paint.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsScene \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QPaintEvent \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QMessageBox \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialog.h \
-		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../../main-proj/mainwindow.cpp
 
@@ -2230,6 +2302,22 @@ paint.o: ../../../main-proj/paint.cpp ../../../main-proj/paint.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qcursor.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/qbitmap.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/QSvgGenerator \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qsvggenerator.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgglobal.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtSvg/qtsvgexports.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QFileDialog \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/qfiledialog.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdir.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfile.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfiledevice.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qfileinfo.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qdatetime.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qcalendar.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimezone.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/QTimer \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qtimer.h \
+		/home/pavel/Qt/6.7.2/gcc_64/include/QtCore/qbasictimer.h \
 		../../../main-proj/rectangle.h \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtGui/QColor \
 		/home/pavel/Qt/6.7.2/gcc_64/include/QtWidgets/QGraphicsItem \

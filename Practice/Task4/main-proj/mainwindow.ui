@@ -33,7 +33,7 @@
     <property name="title">
      <string>Файл</string>
     </property>
-    <addaction name="createNew"/>
+    <addaction name="saveFile"/>
     <addaction name="openFile"/>
    </widget>
    <widget class="QMenu" name="menu_2">
@@ -57,9 +57,9 @@
    <addaction name="menu_3"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="createNew">
+  <action name="saveFile">
    <property name="text">
-    <string>Создать новый</string>
+    <string>Сохранить файл</string>
    </property>
   </action>
   <action name="openFile">
@@ -69,7 +69,7 @@
   </action>
   <action name="SelectColor">
    <property name="text">
-    <string>Выбрать цвет</string>
+    <string>Выбрать цвет объекта</string>
    </property>
   </action>
   <action name="selLine">
@@ -95,6 +95,11 @@
   <action name="selMouseLine">
    <property name="text">
     <string>Свободное рисование</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>Без заливки</string>
    </property>
   </action>
  </widget>

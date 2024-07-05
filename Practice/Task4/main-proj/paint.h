@@ -6,6 +6,8 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QMessageBox>
+#include <QSvgGenerator>
+#include <QFileDialog>
 #include <QTimer>
 #include "rectangle.h"
 
