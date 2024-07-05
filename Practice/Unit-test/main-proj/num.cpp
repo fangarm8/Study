@@ -8,12 +8,12 @@ num::num(const unsigned int& ta, const unsigned int& tb) {
 }
 
 unsigned int num::NOD() {
-    while (a % b != 0) {
+    while (a != 0 && b != 0) {
         if(a>b) {
             a%=b;
         } else {
             b%=a;
         }
     }
-    return a>b?b:a;
+    return a>b?a:b;
 }

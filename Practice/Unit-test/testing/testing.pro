@@ -6,5 +6,5 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES +=  tst_num_test.cpp ../main-proj/num.cpp
 HEADERS += ../main-proj/num.h
+SOURCES +=  tst_num_test.cpp ../main-proj/num.cpp
