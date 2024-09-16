@@ -28,7 +28,7 @@ signals:
 private:
     // Функция, в которой производится отслеживание положения мыши
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    //void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+    // void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 };
 
