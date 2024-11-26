@@ -1,0 +1,4 @@
+2,Sybian,Nokia5500,NaN,0.265,1,2006-05-01,69.9
+4,Android,HuaweiP40,Kirin980,2.5,4,2019-10-20,299.9
+3,Android,GooglePixel9,GoogleTensorG4,3.1,12,2024-08-22,699.99
+1,iOS,iPhone11,AppleSiliconA13Bionic,2.65,3,2019-09-20,699.99

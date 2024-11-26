@@ -29,9 +29,9 @@ public class Taylor {
     }
 
     public BigDecimal BigCosh() {
-        BigDecimal res = new BigDecimal(1.0);
+        BigDecimal res = new BigDecimal("1.0");
         BigDecimal eps = BigDecimal.ONE.divide(BigDecimal.TEN.pow(k, MathContext.DECIMAL128));
-        BigDecimal div = new BigDecimal(1.0);
+        BigDecimal div = new BigDecimal("1.0");
         for (int n = 1; ; n=n+2) {
             div = div.multiply(BigDecimal.valueOf(x)
                     .pow(2)

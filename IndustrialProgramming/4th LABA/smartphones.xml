@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Smartphones>
+    <Smartphone>
+        <ID>2</ID>
+        <Type>Sybian</Type>
+        <Model>Nokia5500</Model>
+        <CPU>NaN</CPU>
+        <CPU_Freq>0.265</CPU_Freq>
+        <Ram>1</Ram>
+        <ReleaseDate>2006-05-01</ReleaseDate>
+        <Price>69.9</Price>
+    </Smartphone>
+    <Smartphone>
+        <ID>4</ID>
+        <Type>Android</Type>
+        <Model>HuaweiP40</Model>
+        <CPU>Kirin980</CPU>
+        <CPU_Freq>2.5</CPU_Freq>
+        <Ram>4</Ram>
+        <ReleaseDate>2019-10-20</ReleaseDate>
+        <Price>299.9</Price>
+    </Smartphone>
+    <Smartphone>
+        <ID>3</ID>
+        <Type>Android</Type>
+        <Model>GooglePixel9</Model>
+        <CPU>GoogleTensorG4</CPU>
+        <CPU_Freq>3.1</CPU_Freq>
+        <Ram>12</Ram>
+        <ReleaseDate>2024-08-22</ReleaseDate>
+        <Price>699.99</Price>
+    </Smartphone>
+    <Smartphone>
+        <ID>1</ID>
+        <Type>iOS</Type>
+        <Model>iPhone116543</Model>
+        <CPU>AppleSiliconA13Bionic</CPU>
+        <CPU_Freq>2.65</CPU_Freq>
+        <Ram>3</Ram>
+        <ReleaseDate>2019-09-20</ReleaseDate>
+        <Price>6990000.99</Price>
+    </Smartphone>
+</Smartphones>
