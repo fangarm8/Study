@@ -1,6 +1,6 @@
 #include <iostream>
 
-long long step(int a, unsigned int b) {
+unsigned long long step(int a, unsigned int b) {
     if (b == 0) 
         return 1;
     int c = 1;
@@ -16,8 +16,9 @@ long long step(int a, unsigned int b) {
 }
 
 unsigned long long C(int n, int k) {
-    unsigned long long B[n+1][n+1];
+    unsigned long long * B[n+1];
     for(int i = 0 ; i <= n; i++) {
+       B[i] = new unsigned long long[i+1]; 
        B[i][0]=1;
        B[i][i]=1;
        for(int j = 1; j < i; j++) {
